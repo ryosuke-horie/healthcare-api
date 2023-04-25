@@ -1,5 +1,3 @@
-<?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -10,4 +8,6 @@ class Weight extends Model
     use HasFactory;
 
     protected $fillable = ['weight'];
+    protected $primaryKey = 'id';
+    public $timestamps = false;
 }
