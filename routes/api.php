@@ -18,5 +18,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// WeightControllerのCRUD処理を実行するためのルーティング
-Route::apiResource('weights', WeightController::class)->except(['show']);
+Route::post('/weights', [WeightController::class, 'store']);
+Route::get('/weights', [WeightController::class, 'index']);
