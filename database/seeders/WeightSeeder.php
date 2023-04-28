@@ -1,22 +1,24 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+namespace Database\Seeders;
 
-class CreateWeightsTable extends Migration
+use Illuminate\Database\Seeder;
+use App\Models\Weight;
+
+class WeightSeeder extends Seeder
 {
-    public function up()
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
     {
-        Schema::create('weights', function (Blueprint $table) {
-            $table->id();
-            $table->float('weight');
-            $table->timestamps();
-        });
-    }
-
-    public function down()
-    {
-        Schema::dropIfExists('weights');
+        // 10件のテストデータを生成
+        for ($i = 0; $i < 10; $i++) {
+            Weight::create([
+                'weight' => rand(50, 120), // 50から120の範囲でランダムな体重を生成
+            ]);
+        }
     }
 }
