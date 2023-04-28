@@ -19,5 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/weights', [WeightController::class, 'store']);
-Route::get('/weights', [WeightController::class, 'index']);
+// Route::post('/weights', [WeightController::class, 'store']);
+// Route::get('/weights', [WeightController::class, 'index']);
+
+Route::get('/weights', 'App\Http\Controllers\WeightController@index');
+Route::post('/weights', 'App\Http\Controllers\WeightController@store');

@@ -7,14 +7,14 @@ use Illuminate\Http\Request;
 
 class WeightController extends Controller
 {
-    private function resConversionJson($result, $statusCode=200)
+    private function resConversionJson($result, $statusCode = 200)
     {
-        if(empty($statusCode) || $statusCode < 100 || $statusCode >= 600){
+        if (empty($statusCode) || $statusCode < 100 || $statusCode >= 600) {
             $statusCode = 500;
         }
         return response()->json($result, $statusCode, ['Content-Type' => 'application/json'], JSON_UNESCAPED_SLASHES);
     }
-    
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
